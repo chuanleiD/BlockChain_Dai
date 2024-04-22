@@ -1,6 +1,6 @@
 {
   "Version":1,
-  "Target":32,
+  "Target":28,
   "MinerId":"Miner01",
-  "RoundTime":15
+  "RoundTime":1000000
 }

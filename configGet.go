@@ -32,6 +32,14 @@ func (c *Config) configGet(jsonUrl string) bool {
 	return true
 }
 
+func (c *Config) show() {
+	fmt.Println("---------------------------------------------------------------------------------------")
+	fmt.Println("[func (c *Config) show()]:")
+	fmt.Println("Version:", c.Version, ",Target:", c.Target, ",MinerID:", c.MinerID, ",RoundTime:", c.RoundTime)
+	fmt.Println("TargetInt:", TargetInt)
+	fmt.Println("---------------------------------------------------------------------------------------")
+}
+
 /*
 // 配置文件读取方式
 config01 := new(Config)
