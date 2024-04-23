@@ -8,6 +8,7 @@ import (
 // 全局变量，存储配置信息
 var globalConfig Config
 var TargetInt *big.Int
+var blockBuffer []*BlockChain
 
 func init() {
 	globalConfig.configGet("config.json")
@@ -18,54 +19,66 @@ func init() {
 	globalConfig.show()
 }
 
-func main() {
-	// 读取本地存储，恢复区块链
-	Blockchain := new(BlockChain)
-	Blockchain.ReadBlockchain()
-	Blockchain.Show()
-
-	err := Blockchain.SendBlockChain()
-	if err != nil {
-		fmt.Println("SendBlockChain error:", err)
-		return
-	}
-
-	return
-}
-
 // main 函数
-func main22() {
-	// 读取本地存储，恢复区块链
-	Blockchain := new(BlockChain)
-	Blockchain.ReadBlockchain()
-	Blockchain.Show()
+func main() {
+	go Listen() // 监听网络
 
-	/*
-		blockchainJSON := Blockchain.Serialize()
-		Blockchain.Deserialize(blockchainJSON)
-		fmt.Println("After Deserialize:")
-		Blockchain.Show()
-	*/
+	// 读取本地存储，恢复区块链
+	BlockchainSave := new(BlockChain)
+	BlockchainSave.ReadBlockchain()
+	BlockchainSave.Show()
 
 	// 基于当前区块链生成新区块
-	Block01 := new(Block)
-	Block01.init()
-	Blockchain.AddPrevMessage(Block01) // 基于当前区块链补全信息
-	Block01.show()
+	Block01 := BlockchainSave.NewBlock()
 
 	// 挖矿
-	result := false
-	for result == false {
-		result = Block01.RoundMine()
+	for {
+		result := Block01.RoundMine()
+		if result == true { // 若本矿工发现了新区块
+			// 展现当前的区块链信息
+			BlockchainSave.AddNewBlock(Block01)
+			//持久化存储：
+			BlockchainSave.SaveBlockchain()
+			fmt.Println("Block01.RoundMine() == true")
+			Block01 = BlockchainSave.NewBlock() // 基于当前区块链生成新区块
+			// 发送给其他矿工
+
+			err := BlockchainSave.SendBlockChain("localhost:12002")
+			if err != nil {
+				fmt.Println("SendBlockChain error:", err)
+				continue
+			}
+			err2 := BlockchainSave.SendBlockChain("localhost:12003")
+			if err2 != nil {
+				fmt.Println("SendBlockChain error:", err2)
+				continue
+			}
+		} else {
+			if len(blockBuffer) > 0 { // 若其他矿工发下了新区块
+				for i := 0; i < len(blockBuffer); i++ {
+					Blockchain := blockBuffer[i] // 若其他矿工的新区块链要更长
+					if BlockchainSave.Blocks[len(BlockchainSave.Blocks)-1].Contain.Height < Blockchain.Blocks[len(Blockchain.Blocks)-1].Contain.Height {
+						checkBufferBlock := Blockchain.Validate()
+						if checkBufferBlock == true {
+							fmt.Println("checkBufferBlock == true")
+							BlockchainSave = Blockchain
+							BlockchainSave.SaveBlockchain()
+							BlockchainSave.Show()
+						}
+					}
+				}
+				blockBuffer = nil                   // 清空缓存
+				Block01 = BlockchainSave.NewBlock() // 基于当前区块链生成新区块
+			}
+		}
+
 	}
-	fmt.Println("finish mining")
 
-	// 展现当前的区块链信息
-	Blockchain.AddNewBlock(Block01)
+}
 
-	//持久化存储：
-	Blockchain.SaveBlockchain()
-
-	Blockchain.Show()
-
+func main2() {
+	// 读取本地存储，恢复区块链
+	BlockchainSave := new(BlockChain)
+	BlockchainSave.ReadBlockchain()
+	BlockchainSave.Show()
 }

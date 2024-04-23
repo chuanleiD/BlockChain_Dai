@@ -76,3 +76,36 @@ func (bc *BlockChain) Deserialize(blockchainJSON []byte) {
 	}
 	fmt.Println("Deserialize success")
 }
+
+func (bc *BlockChain) NewBlock() (b *Block) {
+	fmt.Println("[func (bc *BlockChain) NewBlock()]:")
+	Block01 := new(Block)
+	Block01.init()
+	bc.AddPrevMessage(Block01) // 基于当前区块链补全信息
+	Block01.show()
+	return Block01
+}
+
+//---------------------------------------------------------------------
+//
+
+func (bc *BlockChain) Validate() bool {
+	fmt.Println("[func (bc *BlockChain) Validate()]:")
+	for i := len(bc.Blocks) - 1; i > 0; i-- {
+		if bc.Blocks[i].Head.PrevHash != bc.Blocks[i-1].Head.getHashString() { // 比较当前区块的 PrevHash 与上一个区块的哈希值
+			fmt.Println("BlockChain PrevHash is invalid!")
+			return false
+		}
+		if bc.Blocks[i].Head.TxRoot != bc.Blocks[i].getTxRoot() { // 比较当前区块的 TxRoot 与区块内交易的哈希值
+			fmt.Println("BlockChain TxRoot is invalid!")
+			return false
+		}
+		hashInt := bc.Blocks[i].Head.getHashInt()
+		if hashInt.Cmp(TargetInt) > -1 { // 比较当前区块的哈希值与目标值
+			fmt.Println("BlockChain Target is invalid!")
+			return false
+		}
+	}
+	fmt.Println("BlockChain is valid!")
+	return true
+}

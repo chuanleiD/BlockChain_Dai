@@ -8,12 +8,12 @@ import (
 )
 
 // SendBlockChain 参考POW共识协议内容，节点间传输整个区块信息
-func (bc *BlockChain) SendBlockChain() error {
+func (bc *BlockChain) SendBlockChain(ipAddress string) error {
 	// 序列化区块链
 	blockchainJSON := bc.Serialize()
 
 	// 连接到程序2的地址和端口
-	conn, err := net.Dial("tcp", "localhost:8080")
+	conn, err := net.Dial("tcp", ipAddress)
 	if err != nil {
 		log.Fatal("Error connecting:", err)
 		return err
@@ -36,11 +36,12 @@ func (bc *BlockChain) SendBlockChain() error {
 	return nil
 }
 
+// Listen ---------------------------------------------------------------------
 // Listen 监听本地端口，接收其他节点发送的区块链
 func Listen() {
-	fmt.Println("Listening at localhost:8080...")
+	fmt.Println("Listening at localhost:12001...")
 	// 监听本地端口
-	ln, err := net.Listen("tcp", ":8080")
+	ln, err := net.Listen("tcp", ":12001")
 	if err != nil {
 		log.Fatal("Error listening:", err)
 	}

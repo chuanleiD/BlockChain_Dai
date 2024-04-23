@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bytes"
-	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"github.com/boltdb/bolt"
@@ -141,21 +139,19 @@ func (bc *BlockChain) SaveBlockchain() {
 
 // Int32ToBytes 将int32转换为[]byte
 func Int32ToBytes(num int32) []byte {
-	buf := new(bytes.Buffer)
-	err := binary.Write(buf, binary.LittleEndian, num)
+	timeBytes, err := json.Marshal(num)
 	if err != nil {
-		fmt.Println("binary.Write failed:", err)
+		log.Panic(err)
 	}
-	return buf.Bytes()
+	return timeBytes
 }
 
 // BytesToInt32 将[]byte转换为int32
 func BytesToInt32(data []byte) int32 {
 	var num int32
-	buf := bytes.NewReader(data)
-	err := binary.Read(buf, binary.LittleEndian, &num)
+	err := json.Unmarshal(data, &num)
 	if err != nil {
-		fmt.Println("binary.Read failed:", err)
+		log.Panic(err)
 	}
 	return num
 }
