@@ -1,0 +1,61 @@
+---------------------------------------------------------------------------------------
+[func (c *Config) show()]:
+Version: 1 ,Target: 29 ,MinerID: Miner01 ,RoundTime: 1000000
+TargetInt: 215679573337205118357336120696157045389097155380324579848828881993728
+---------------------------------------------------------------------------------------
+[func (bc *Blockchain) ReadBlockchain()]:
+Listening at localhost:12001...
+Key: 0, Value: {"Head":{"Version":1,"PrevHash":"0000000000000000000000000000000000000000000000000000000000000000","Time":0,"TargetBits":29,"Nonce":347306002,"TxRoot":"fcbf7eec47cd910feb4194075e2727ad570395629af5c98c0972b6aa8ce03af0"},"Contain":{"MinerId":"Mr.Dai","Height":0}}
+Key: 1713861517, Value: {"Head":{"Version":1,"PrevHash":"000000071d3d84f2bf84c56a616edd963c0a1a7fa490c34a010e9c580ce19397","Time":1713861517,"TargetBits":29,"Nonce":7682130885682942646,"TxRoot":"d05e0f6974bab222b57dd24ecf0f4ce2d5e4a5519125d2abbc172ab503b517df"},"Contain":{"MinerId":"Miner01","Height":1}}
+Key: 1713861734, Value: {"Head":{"Version":1,"PrevHash":"0000000627c200b131d63780edf2364be7abd893948995a353386ee23dcc5479","Time":1713861734,"TargetBits":29,"Nonce":411779348237935561,"TxRoot":"3219900e8f483c6b6e97d532e5175373062cfb0433f06bca4edb3fc04d4ddf7b"},"Contain":{"MinerId":"Miner03","Height":2}}
+Key: 1713861759, Value: {"Head":{"Version":1,"PrevHash":"00000002f224efcfb097b64f82024ad6885dbd9999f7a9a3c849482a84e41062","Time":1713861759,"TargetBits":29,"Nonce":3466299358183795793,"TxRoot":"ed2f367cd8e4de17afbd4ab47fee82b6a83ec40f01bab4d4ea89edd032254dc3"},"Contain":{"MinerId":"Miner03","Height":3}}
+Key: 1713861825, Value: {"Head":{"Version":1,"PrevHash":"00000000d81519f25acb512284762bbb25deb44816dcfce965ed6d22a24624c0","Time":1713861825,"TargetBits":29,"Nonce":2904176259884484252,"TxRoot":"02f201290c0dcc9d570e66073466142d43a2c836e19a11113b30bc8b9deb1912"},"Contain":{"MinerId":"Miner03","Height":4}}
+Key: 1713861915, Value: {"Head":{"Version":1,"PrevHash":"00000003963425b55a0faabfca10fdd8450b5e85a1936be92c24db60c0bb8b21","Time":1713861915,"TargetBits":29,"Nonce":6477302347213619674,"TxRoot":"35eddb257ef8365e280964ac8c3ad845f038d3ec24a666e0c0cf4af6cce10622"},"Contain":{"MinerId":"Miner03","Height":5}}
+Key: 1713862030, Value: {"Head":{"Version":1,"PrevHash":"00000004e01ffbfbf42412c9be349a2d36d6d73be64bc0f91501ad455075cf07","Time":1713862030,"TargetBits":29,"Nonce":7548019710414541982,"TxRoot":"23f3185654e5bc62fef228b703bd4168308aa020a3e52f4b34959c1a4dcc37e8"},"Contain":{"MinerId":"Miner01","Height":6}}
+Key: 1713862054, Value: {"Head":{"Version":1,"PrevHash":"00000005b5c6b4147a0f0bbb33d6967ff6e1965e2d5ae8acb2cf47a703b5b084","Time":1713862054,"TargetBits":29,"Nonce":1642178632760329918,"TxRoot":"06f038c9db5aee09019699f11c3cb3de02c2fe8ea49dd46ba77f8060968d3efe"},"Contain":{"MinerId":"Miner01","Height":7}}
+Key: 1713862107, Value: {"Head":{"Version":1,"PrevHash":"00000006a8f3ab7aba539ff3304593554819ea8b69e2cd7d1d1ac2b11f2a323f","Time":1713862107,"TargetBits":29,"Nonce":6782146278038071776,"TxRoot":"25d20e3797b9d2fa815314f7bfc67702d6c9d53dfc25b7a213b8068661b3da7c"},"Contain":{"MinerId":"Miner02","Height":8}}
+Key: 1713862243, Value: {"Head":{"Version":1,"PrevHash":"000000068dc9dcef46d84aedec709e61c59f8c5891acde6e9bd3e4eacdf48ec7","Time":1713862243,"TargetBits":29,"Nonce":524486937788956190,"TxRoot":"c8a09b9a36aced5138c9936914c0568b8341de9780d7ddd3ff933c24541b1da8"},"Contain":{"MinerId":"Miner03","Height":9}}
+---------------------------------------------------------------------------------------
+【Show the entire blockchain】:
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 0000000000000000000000000000000000000000000000000000000000000000 ,Time: 0 ,TargetBits: 29 ,Nonce: 347306002 ,TxRoot: fcbf7eec47cd910feb4194075e2727ad570395629af5c98c0972b6aa8ce03af0
+MinerId: Mr.Dai ,Height: 0
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 000000071d3d84f2bf84c56a616edd963c0a1a7fa490c34a010e9c580ce19397 ,Time: 1713861517 ,TargetBits: 29 ,Nonce: 7682130885682942646 ,TxRoot: d05e0f6974bab222b57dd24ecf0f4ce2d5e4a5519125d2abbc172ab503b517df
+MinerId: Miner01 ,Height: 1
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 0000000627c200b131d63780edf2364be7abd893948995a353386ee23dcc5479 ,Time: 1713861734 ,TargetBits: 29 ,Nonce: 411779348237935561 ,TxRoot: 3219900e8f483c6b6e97d532e5175373062cfb0433f06bca4edb3fc04d4ddf7b
+MinerId: Miner03 ,Height: 2
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 00000002f224efcfb097b64f82024ad6885dbd9999f7a9a3c849482a84e41062 ,Time: 1713861759 ,TargetBits: 29 ,Nonce: 3466299358183795793 ,TxRoot: ed2f367cd8e4de17afbd4ab47fee82b6a83ec40f01bab4d4ea89edd032254dc3
+MinerId: Miner03 ,Height: 3
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 00000000d81519f25acb512284762bbb25deb44816dcfce965ed6d22a24624c0 ,Time: 1713861825 ,TargetBits: 29 ,Nonce: 2904176259884484252 ,TxRoot: 02f201290c0dcc9d570e66073466142d43a2c836e19a11113b30bc8b9deb1912
+MinerId: Miner03 ,Height: 4
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 00000003963425b55a0faabfca10fdd8450b5e85a1936be92c24db60c0bb8b21 ,Time: 1713861915 ,TargetBits: 29 ,Nonce: 6477302347213619674 ,TxRoot: 35eddb257ef8365e280964ac8c3ad845f038d3ec24a666e0c0cf4af6cce10622
+MinerId: Miner03 ,Height: 5
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 00000004e01ffbfbf42412c9be349a2d36d6d73be64bc0f91501ad455075cf07 ,Time: 1713862030 ,TargetBits: 29 ,Nonce: 7548019710414541982 ,TxRoot: 23f3185654e5bc62fef228b703bd4168308aa020a3e52f4b34959c1a4dcc37e8
+MinerId: Miner01 ,Height: 6
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 00000005b5c6b4147a0f0bbb33d6967ff6e1965e2d5ae8acb2cf47a703b5b084 ,Time: 1713862054 ,TargetBits: 29 ,Nonce: 1642178632760329918 ,TxRoot: 06f038c9db5aee09019699f11c3cb3de02c2fe8ea49dd46ba77f8060968d3efe
+MinerId: Miner01 ,Height: 7
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 00000006a8f3ab7aba539ff3304593554819ea8b69e2cd7d1d1ac2b11f2a323f ,Time: 1713862107 ,TargetBits: 29 ,Nonce: 6782146278038071776 ,TxRoot: 25d20e3797b9d2fa815314f7bfc67702d6c9d53dfc25b7a213b8068661b3da7c
+MinerId: Miner02 ,Height: 8
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 000000068dc9dcef46d84aedec709e61c59f8c5891acde6e9bd3e4eacdf48ec7 ,Time: 1713862243 ,TargetBits: 29 ,Nonce: 524486937788956190 ,TxRoot: c8a09b9a36aced5138c9936914c0568b8341de9780d7ddd3ff933c24541b1da8
+MinerId: Miner03 ,Height: 9
+---------------------------------------------------------------------------------------
+[func (bc *BlockChain) NewBlock()]:
+[func (b *Block) init()]:
+Version: 1 ,Time: 1714010300 ,TargetBits: 29 ,Nonce: 5356145142671603373 ,MinerId: Miner01
+[func (bc *BlockChain) AddPrevMessage()]:
+newBlock.Contain.Height: 10
+TxRoot: 459fa89b97b76255cf5b33e2cab09c5e0819d337e8a6115dd6c2c38318c95d49
+newBlock.Head.TxRoot: 459fa89b97b76255cf5b33e2cab09c5e0819d337e8a6115dd6c2c38318c95d49
+newBlock.Head.PrevHash: 000000045d45282c7d9fcb2955043a8eb15c969f60c8509adbb124ca9a64d75d
+[func (b *Block) show()]:
+Version: 1 ,PrevHash: 000000045d45282c7d9fcb2955043a8eb15c969f60c8509adbb124ca9a64d75d ,Time: 1714010300 ,TargetBits: 29 ,Nonce: 5356145142671603373 ,TxRoot: 459fa89b97b76255cf5b33e2cab09c5e0819d337e8a6115dd6c2c38318c95d49
+MinerId: Miner01 ,Height: 10
