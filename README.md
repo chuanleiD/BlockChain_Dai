@@ -47,7 +47,7 @@ require (
 )
 ```
 
-<img src="pic\image-20240423182701783.png" alt="image-20240423182701783" style="zoom: 50%;" /> 
+<img src="pic/image-20240423182701783.png" alt="image-20240423182701783" style="zoom: 50%;" /> 
 
 ## 四、如何运行：
 
@@ -60,7 +60,7 @@ go build -o blockchain01.exe BlockChain_Dai
 
 单区块链节点的文件结构：
 
-<img src="D:\0go_work\Go_WorkSpace\BlockChain_Dai\pic\PixPin_2024-08-16_18-10-57.png" alt="PixPin_2024-08-16_18-10-57" style="zoom: 67%;" /> 
+<img src="pic/PixPin_2024-08-16_18-10-57.png" alt="PixPin_2024-08-16_18-10-57" style="zoom: 67%;" /> 
 
 如何运行：
 
